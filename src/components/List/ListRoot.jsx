@@ -2,7 +2,7 @@
 function List() {
 
   return (
-      <h1 className="w-2/3 bg-black-600">Listagem aqui</h1>
+      <h1 className="w-2/3 bg-primary-600">Listagem aqui</h1>
   )
 }
 

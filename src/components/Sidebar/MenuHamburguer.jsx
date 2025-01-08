@@ -16,18 +16,18 @@ const HamburgerMenu = () => {
           >
             <div
               className={`relative w-12 h-2  rounded-full transition-all duration-150 ${
-                isOpen ? "bg-black-800" : "bg-blue-800"
+                isOpen ? "bg-primary-800" : "bg-secondary-800"
               }`}
             >
-              {/* Barra superior */}
+
               <div
-                className={`absolute w-12 h-2 bg-blue-800 rounded-full transition-all duration-150 ${
+                className={`absolute w-12 h-2 bg-secondary-800 rounded-full transition-all duration-150 ${
                   isOpen ? "rotate-45 translate-y-0" : "-translate-y-4"
                 }`}
               ></div>
-              {/* Barra inferior */}
+
               <div
-                className={`absolute w-12 h-2 bg-blue-800 rounded-full transition-all duration-150 ${
+                className={`absolute w-12 h-2 bg-secondary-800 rounded-full transition-all duration-150 ${
                   isOpen ? "-rotate-45 translate-y-0" : "translate-y-4"
                 }`}
               ></div>

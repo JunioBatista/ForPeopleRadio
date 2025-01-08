@@ -1,14 +1,21 @@
+import StationList from "../List/stationList"
 import HamburgerMenu from "./MenuHamburguer"
+import SearchInput from "./SearchInput"
 
 function SidebarRoot() {
 
     return (
 
-        <div className="sidebar-container bg-black-800 w-1/3">
+        <section className="sidebar-container bg-primary-800 w-1/3 p-2">
             <div className=" h-20 w-full p-2 flex justify-end items-center">
                 <HamburgerMenu />
             </div>
-        </div>
+                <SearchInput />
+            <div>
+                <StationList />
+            </div>
+            
+        </section>
 
     )
   }

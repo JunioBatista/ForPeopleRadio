@@ -13,14 +13,15 @@ export const theme = {
         900: "#FFFFFF"
       },
 
-      black: {
+      primary: {
         900: "#000000",
         800: "#1E1E21", 
         600: "#2F2F33", 
+        500: "#62626C",
         400: "#4D4D56",
       },
 
-      blue: {
+      secondary: {
         800: "#1267FC",
       },
     },
