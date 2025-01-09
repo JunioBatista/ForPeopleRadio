@@ -1,18 +1,34 @@
-//import { useState } from 'react'
+import { useState } from "react";
+import { useQuery } from "@tanstack/react-query";
+import List from "../../components/FavoriteList/FavoriteListRoot";
+import Sidebar from "../../components/Sidebar/SidebarRoot";
+import RadioService from '../../services/radio-service'; 
+import { FavoritesProvider, useFavorites } from '../../contexts/favoriteContext';
 
-import List from "../../components/List/ListRoot"
-import Sidebar from "../../components/Sidebar/SidebarRoot"
-
+const fetchRadios = async () => {
+    return await RadioService.getRadios(10);
+};
 
 function Home() {
-  //const [count, setCount] = useState(0)
 
-  return (
-    <div className="w-screen h-screen flex">
-      < Sidebar />
-      < List />
-    </div>
-  )
+    const { data, isLoading, isError, error } = useQuery({
+        queryKey: ['radios'],
+        queryFn: fetchRadios,
+    });
+
+
+    if (isLoading) return <p>Carregando...</p>;
+    if (isError) return <p>Erro: {error.message}</p>;
+
+      
+    return (
+        <FavoritesProvider>
+            <div className="w-screen h-screen flex">
+                <Sidebar /> 
+                <List />
+            </div>
+        </FavoritesProvider>
+    );
 }
 
-export default Home
+export default Home;
