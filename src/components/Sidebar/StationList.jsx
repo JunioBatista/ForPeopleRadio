@@ -1,13 +1,19 @@
-import StationCard from "../List/stationCard";
+import StationCard from "./StationCard";
 
 
-function StationList({list}) {
+function StationList({ list }) {
+
+
 
   return (
-      <ul className="p-4 flex flex-col gap-2">
+    <ul className="p-4 flex flex-col gap-2">
+
       {list?.map((station, index) => (
-        <StationCard station={station} key={index}/>
+        <div key={index}>
+          <StationCard station={station}   />
+        </div>
       ))}
+      
     </ul>
   )
 

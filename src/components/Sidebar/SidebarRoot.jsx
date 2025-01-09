@@ -12,6 +12,7 @@ function SidebarRoot() {
     
     const queryClient = useQueryClient();
 
+
     useEffect(() => {
   
         const cachedRadios = queryClient.getQueryData(['radios']);
@@ -41,9 +42,10 @@ function SidebarRoot() {
 
     const currentList = filteredList.length > 0 ? filteredList : radioslist
 
+
     return (
 
-        <section className="sidebar-container bg-primary-800 w-1/3 p-2">
+        <aside className="sidebar-container bg-primary-800 w-1/3 p-2">
             <div className=" h-20 w-full p-2 flex justify-end items-center">
                 <HamburgerMenu />
             </div>
@@ -52,7 +54,7 @@ function SidebarRoot() {
                 <StationList list = {currentList} />
             </div>
             
-        </section>
+        </aside>
 
     )
   }
