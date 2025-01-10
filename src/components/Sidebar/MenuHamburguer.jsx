@@ -1,10 +1,10 @@
 import { useState } from "react";
 
-const HamburgerMenu = () => {
+const HamburgerMenu = ({changeView}) => {
     const [isOpen, setIsOpen] = useState(false);
   
     const toggleMenu = () => {
-      setIsOpen(!isOpen);
+      changeView()
     };
   
     return (
@@ -16,7 +16,7 @@ const HamburgerMenu = () => {
           >
             <div
               className={`relative w-10 h-1.5  rounded-full transition-all duration-150 ${
-                isOpen ? "bg-primary-800" : "bg-secondary-800"
+                isOpen ? "bg-primary-900" : "bg-secondary-800"
               }`}
             >
 

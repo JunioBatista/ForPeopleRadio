@@ -1,4 +1,3 @@
-/* eslint-disable react/prop-types */
 import Check from "../../assets/Icons/check.svg"
 import { useFavorites } from "../../contexts/favoriteContext";
 
@@ -8,8 +7,8 @@ function StationCard({station}) {
         (item) => station.changeuuid === item.changeuuid
       );
 
-    const handleOnClick = (itemAddOrRemove) => {        
-        
+    const handleOnClick = (itemAddOrRemove) => {    
+            
         addOrRemoveFavorite(itemAddOrRemove)
 
     }
@@ -17,10 +16,10 @@ function StationCard({station}) {
     
 
     return (
-        <div onClick= { ()=> handleOnClick(station)} className="h-12 px-4 card-container w-full rounded-lg bg-primary-500  flex items-center justify-between">
+        <div onClick= { ()=> handleOnClick(station)} className="h-12 px-4 card-container w-full rounded-lg bg-primary-600  flex items-center justify-between">
 
             <p className="text-white-900 ">{station.name}</p>
-            {isFavorite && <img src={Check} alt="My Icon" />}
+            {isFavorite && <img src={Check} alt="check icon" />}
 
         </div>
     )

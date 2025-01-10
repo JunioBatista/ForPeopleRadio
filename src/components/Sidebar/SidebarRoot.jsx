@@ -1,14 +1,15 @@
 import StationList from "./StationList"
 import HamburgerMenu from "./MenuHamburguer"
-import SearchInput from "./SearchInput"
+import SearchInput from "../Shared/SearchInput"
 import { useEffect, useState } from "react";
 import { useQueryClient } from "@tanstack/react-query";
 
-function SidebarRoot() {
+function SidebarRoot({changeSection}) {
 
     const [radioslist, setRadios] = useState([]);
     const [filteredList, setFilteredList] = useState([]);
     const [searchValue, setSearchValue] = useState('');
+    let placeholdertext = "Search here"
     
     const queryClient = useQueryClient();
 
@@ -40,16 +41,25 @@ function SidebarRoot() {
         setSearchValue(event.target.value);
     };
 
-    const currentList = filteredList.length > 0 ? filteredList : radioslist
+    const handleChangeView = (event) => {
+        changeSection('favorit')
+    };
+
+
+    const currentList = searchValue.length > 0 ? filteredList : radioslist
 
 
     return (
 
-        <aside className="sidebar-container bg-primary-800 w-1/3 p-2">
+        <aside className="sidebar-container bg-primary-900 w-auto p-2 w-full h-screen">
             <div className=" h-20 w-full p-2 flex justify-end items-center">
-                <HamburgerMenu />
+                <HamburgerMenu changeView={handleChangeView} />
             </div>
-                <SearchInput value={searchValue} onChange={handleSearchChange} />
+                <SearchInput 
+                    value={searchValue} 
+                    onChange={handleSearchChange}
+                    placeHolderText={placeholdertext}
+                />
             <div>
                 <StationList list = {currentList} />
             </div>

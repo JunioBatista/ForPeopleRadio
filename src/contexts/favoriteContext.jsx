@@ -5,7 +5,6 @@ const FavoritesContext = createContext();
 export const FavoritesProvider = ({ children }) => {
   
   const [favoriteList, setFavoriteList] = useState([]);
-
   const addOrRemoveFavorite = (SelectedStation) => {
 
     setFavoriteList((prevFavoriteList) => {
@@ -22,6 +21,7 @@ export const FavoritesProvider = ({ children }) => {
       }
       
     });
+    
   };
 
 
