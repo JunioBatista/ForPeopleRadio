@@ -1,12 +1,11 @@
 import { useState } from "react"
-import FavoriteCard from "./favotiteCard"
+import FavoriteCard from "./favoriteCard"
 
 
 function PlayListContainer({favoriteList}) {
 
     const [isPlaying, setIsPlaying] = useState(null);
     
-
     return (
         <section  className="card-container w-full rounded-lg  bg-primary-400 flex flex-col ">
             
@@ -23,15 +22,15 @@ function PlayListContainer({favoriteList}) {
             </div>
 
             <div className="bg-slate-400 h-1 opacity-20"></div>
-
-            <div className="list py-2 truncate">
+            
+            <div className="list py-2 truncate flex flex-col gap-2">
 
                 {favoriteList?.map((station, index) => (
-                    <div key={index}>
+                    <div key={index} >
                         <FavoriteCard 
                             isPlaying={isPlaying} 
                             handlePlaying={setIsPlaying}
-                            station={station}   />
+                            station={station}  />
                     </div>
                 ))}
 
